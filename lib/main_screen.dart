@@ -8,10 +8,11 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.amber,
-          title: const Text("Fruits Apps "),
+          title: const Text(
+            "Fruits Apps ",
+          ),
         ),
         body: LayoutBuilder(
             builder: (BuildContext context, BoxConstraints constraints) {
@@ -36,51 +37,54 @@ class FruitsList extends StatelessWidget {
     return ListView.builder(
       itemBuilder: (context, index) {
         final Fruits fruit = fruitsData[index];
-        return InkWell(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return DetailFruit(
-                fruit: fruit,
-              );
-            }));
-          },
-          child: Card(
-            color: Colors.white,
-            elevation: 2,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Padding(padding: EdgeInsets.all(10.0)),
-                Expanded(
-                  child: Image.asset(
-                    fruit.imageAssets,
-                    // fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(
-                  width: 10.0,
-                ),
-                Expanded(
-                  flex: 2,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          fruit.nama,
-                          style: const TextStyle(fontSize: 16.0),
-                        ),
-                        const SizedBox(height: 10.0),
-                        Text(fruit.vitamin)
-                      ],
+        return Padding(
+          padding: const EdgeInsets.only(top: 16.0),
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailFruit(
+                  fruit: fruit,
+                );
+              }));
+            },
+            child: Card(
+              color: Colors.white,
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(padding: EdgeInsets.all(10.0)),
+                  Expanded(
+                    child: Image.asset(
+                      fruit.imageAssets,
+                      // fit: BoxFit.cover,
                     ),
                   ),
-                )
-              ],
+                  const SizedBox(
+                    width: 10.0,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            fruit.nama,
+                            style: const TextStyle(fontSize: 16.0),
+                          ),
+                          const SizedBox(height: 10.0),
+                          Text(fruit.vitamin)
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         );

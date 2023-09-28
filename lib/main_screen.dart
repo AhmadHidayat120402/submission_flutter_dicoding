@@ -8,6 +8,7 @@ class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.white,
         appBar: AppBar(
           backgroundColor: Colors.amber,
           title: const Text("Fruits Apps "),
@@ -44,7 +45,8 @@ class FruitsList extends StatelessWidget {
             }));
           },
           child: Card(
-            elevation: 5,
+            color: Colors.white,
+            elevation: 2,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             child: Row(
